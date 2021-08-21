@@ -16,7 +16,7 @@ import (
 func New() *echo.Echo {
 	e := echo.New()
 	e.Use(middleware.Logger(), middleware.Recover())
-	e.GET("/", healthCheck)
+	e.GET("/health", healthCheck)
 	e.Validator = &CustomValidator{V: validator.New()}
 	custErr := &customErrHandler{e: e}
 	e.HTTPErrorHandler = custErr.handler

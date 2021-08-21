@@ -9,7 +9,11 @@ import (
 func Start(cfg *config.Configuration) error {
 
 	e := server.New()
+
+	// Register static assets
 	e.Static("/", cfg.App.StaticPath)
+
+	// Register websocket handler
 	e.GET("/ws", websocket.Connection)
 
 	server.Start(e, &server.Config{
