@@ -11,16 +11,18 @@ ENV GO111MODULE=on
 COPY go.mod go.sum ./
 RUN go mod download
 
-COPY *.go ./
+COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux go build -o /spotter-vector
+RUN CGO_ENABLED=0 GOOS=linux go build -o /spotter-vector ./cmd/api/main.go
 
 # Deploy
 FROM gcr.io/distroless/base-debian10:$DEPLOY_TAG
 
 WORKDIR /
 
-COPY ./static ./static
+COPY ./public ./public
+COPY conf.local.yaml ./
+
 COPY --from=build /spotter-vector /spotter-vector
 
 EXPOSE 8080
