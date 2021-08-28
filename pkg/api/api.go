@@ -18,7 +18,8 @@ func Start(cfg *config.Configuration) error {
 	e.GET("/ws", websocket.Connection)
 
 	// Register vector core commands
-	e.GET("/connect", vector.Connect)
+	e.POST("/connect", vector.Connect)
+	e.GET("/status", vector.GetConnectionStatus)
 
 	server.Start(e, &server.Config{
 		Port:                cfg.Server.Port,
