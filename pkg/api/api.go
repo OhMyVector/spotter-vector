@@ -1,9 +1,10 @@
 package api
 
 import (
-	"github.com/ohmyvector/spotter-vector/pkg/api/websocket"
-	"github.com/ohmyvector/spotter-vector/pkg/common/config"
-	"github.com/ohmyvector/spotter-vector/pkg/common/server"
+	"github.com/OhMyVector/spotter-vector/pkg/api/vector"
+	"github.com/OhMyVector/spotter-vector/pkg/api/websocket"
+	"github.com/OhMyVector/spotter-vector/pkg/core/config"
+	"github.com/OhMyVector/spotter-vector/pkg/core/server"
 )
 
 func Start(cfg *config.Configuration) error {
@@ -15,6 +16,9 @@ func Start(cfg *config.Configuration) error {
 
 	// Register websocket handler
 	e.GET("/ws", websocket.Connection)
+
+	// Register vector core commands
+	e.GET("/connect", vector.Connect)
 
 	server.Start(e, &server.Config{
 		Port:                cfg.Server.Port,

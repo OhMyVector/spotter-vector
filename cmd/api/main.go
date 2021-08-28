@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 
-	"github.com/ohmyvector/spotter-vector/pkg/api"
-	"github.com/ohmyvector/spotter-vector/pkg/common/config"
+	"github.com/OhMyVector/spotter-vector/pkg/api"
+	"github.com/OhMyVector/spotter-vector/pkg/core/config"
 )
 
 func main() {

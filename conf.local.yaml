@@ -6,3 +6,7 @@ server:
 
 application:
   static_path: "public"
+
+bot:
+  target: "192.168.10.9"
+  token: "token"

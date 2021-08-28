@@ -1,8 +1,10 @@
 package websocket
 
 import (
+	"encoding/json"
 	"net/http"
 
+	"github.com/OhMyVector/spotter-vector/pkg/api/vector"
 	"github.com/gorilla/websocket"
 	"github.com/labstack/echo/v4"
 )
@@ -23,6 +25,17 @@ func reader(c echo.Context, conn *websocket.Conn) error {
 			return err
 		}
 		c.Logger().Info(string(p))
+
+		var msg vector.Message
+		err = json.Unmarshal(p, &msg)
+		if err != nil {
+			return err
+		}
+
+		err = vector.HandleMessage(msg)
+		if err != nil {
+			return err
+		}
 
 		if err := conn.WriteMessage(messageType, p); err != nil {
 			c.Logger().Error(err)
