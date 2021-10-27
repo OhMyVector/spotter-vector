@@ -1,10 +1,10 @@
 package api
 
 import (
-	"github.com/OhMyVector/spotter-vector/pkg/api/vector"
-	"github.com/OhMyVector/spotter-vector/pkg/api/websocket"
-	"github.com/OhMyVector/spotter-vector/pkg/core/config"
-	"github.com/OhMyVector/spotter-vector/pkg/core/server"
+	"github.com/ohmyvector/spotter-vector/pkg/api/vector"
+	"github.com/ohmyvector/spotter-vector/pkg/api/websocket"
+	"github.com/ohmyvector/spotter-vector/pkg/core/config"
+	"github.com/ohmyvector/spotter-vector/pkg/core/server"
 )
 
 func Start(cfg *config.Configuration) error {

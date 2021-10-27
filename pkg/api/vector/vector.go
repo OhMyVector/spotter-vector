@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/OhMyVector/spotter-vector/pkg/core/vector"
 	"github.com/labstack/echo/v4"
+	"github.com/ohmyvector/spotter-vector/pkg/core/vector"
 )
 
 var (
