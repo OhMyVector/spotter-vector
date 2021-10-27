@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/OhMyVector/spotter-vector/pkg/api/vector"
 	"github.com/gorilla/websocket"
 	"github.com/labstack/echo/v4"
+	"github.com/ohmyvector/spotter-vector/pkg/api/vector"
 )
 
 var upgrader = websocket.Upgrader{

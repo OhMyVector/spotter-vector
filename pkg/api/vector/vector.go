@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/OhMyVector/spotter-vector/pkg/core/vector"
 	"github.com/labstack/echo/v4"
+	"github.com/ohmyvector/spotter-vector/pkg/core/vector"
 )
 
 var (
@@ -45,6 +45,12 @@ func HandleMessage(msg Message) error {
 	switch msg.Type {
 	case "talk":
 		bot.Talk(context.Background(), msg.Data)
+	case "drive":
+		bot.DriveStraight(context.Background())
+	case "turn_left":
+		bot.TurnLeft(context.Background())
+	case "turn_right":
+		bot.TurnRight(context.Background())
 	default:
 		return fmt.Errorf("invalid message type")
 	}
